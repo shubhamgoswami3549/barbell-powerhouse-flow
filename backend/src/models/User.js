@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema(
       plan: { type: String, enum: ["none", "basic", "pro", "elite"], default: "none" },
       since: { type: Date },
     },
+    phone: { type: String },
+    age: { type: Number },
+    gender: { type: String, enum: ["Male", "Female", "Other"] },
+    goal: { type: String },
   },
   { timestamps: true }
 );

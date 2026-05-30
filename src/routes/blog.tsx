@@ -5,7 +5,7 @@ import { Calendar, ArrowRight } from "lucide-react";
 
 const extra = [
   { title: "Fat Loss Without Losing Muscle", cat: "Fat Loss", date: "Feb 14, 2025", img: "https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=800&q=80" },
-  { title: "Sleep: The Underrated Muscle Builder", cat: "Recovery", date: "Feb 02, 2025", img: "https://images.unsplash.com/photo-1583500178690-f7fd39bef0eb?w=800&q=80" },
+  { title: "Sleep: The Underrated Muscle Builder", cat: "Recovery", date: "Feb 02, 2025", img: "https://images.unsplash.com/photo-1688382575775-9aaa5025524e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
   { title: "Pre-Workout Nutrition Done Right", cat: "Nutrition", date: "Jan 22, 2025", img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80" },
 ];
 const all = [...posts, ...extra];

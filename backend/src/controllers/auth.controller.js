@@ -2,7 +2,9 @@ import User from "../models/User.js";
 import { signToken } from "../middleware/auth.js";
 
 export async function register(req, res) {
-  const { name, email, password } = req.body || {};
+  const { name, email, password, plan, phone, age, gender, goal } = req.body || {};
+
+  // Basic validation
   if (!name || !email || !password) {
     return res.status(400).json({ message: "Name, email and password are required" });
   }
@@ -10,10 +12,22 @@ export async function register(req, res) {
     return res.status(400).json({ message: "Password must be at least 6 characters" });
   }
 
+  // Check if email already exists
   const exists = await User.findOne({ email: email.toLowerCase() });
   if (exists) return res.status(409).json({ message: "Email already registered" });
 
-  const user = await User.create({ name, email, password });
+  // Create user (password will be hashed by pre-save hook in User.js)
+  const user = await User.create({
+    name,
+    email,
+    password,
+    membership: { plan: plan || "none", since: new Date() },
+    phone,
+    age,
+    gender,
+    goal,
+  });
+
   const token = signToken(user._id);
 
   res.status(201).json({ user, token });
@@ -31,7 +45,7 @@ export async function login(req, res) {
   }
 
   const token = signToken(user._id);
-  res.json({ user, token });
+  res.json({ user: user.toJSON(), token });
 }
 
 export async function me(req, res) {

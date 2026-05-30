@@ -1,10 +1,10 @@
 import { Instagram, Twitter, Facebook } from "lucide-react";
 
 export const trainers = [
-  { name: "Rohan Mehra", specialty: "Strength & Powerlifting", img: "https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=600&q=80" },
-  { name: "Priya Sharma", specialty: "Women's Fitness & HIIT", img: "https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&q=80" },
-  { name: "Arjun Singh", specialty: "CrossFit & Conditioning", img: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80" },
-  { name: "Neha Kapoor", specialty: "Yoga & Mobility", img: "https://images.unsplash.com/photo-1611695434398-4f4b330623e6?w=600&q=80" },
+  { name: "Rohan Mehra", specialty: "Strength & Powerlifting", img: "https://images.unsplash.com/photo-1750698545009-679820502908?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { name: "Priya Sharma", specialty: "Women's Fitness & HIIT", img: "https://images.unsplash.com/photo-1685811985755-6962cb38280f?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { name: "Arjun Singh", specialty: "CrossFit & Conditioning", img: "https://images.unsplash.com/photo-1583500178689-665d1f77e67d?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { name: "Neha Kapoor", specialty: "Yoga & Mobility", img: "https://images.unsplash.com/photo-1708011108850-49646bd34503?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
 ];
 
 export function TrainersSection() {

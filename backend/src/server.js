@@ -1,58 +1,39 @@
-import "dotenv/config";
 import express from "express";
+import dotenv from "dotenv";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import rateLimit from "express-rate-limit";
+import { connectDB } from "./src/config/db.js";
+import authRoutes from "./src/routes/auth.routes.js";
+import userRoutes from "./src/routes/user.routes.js";
+import { errorHandler, notFound } from "./src/middleware/error.js";
 
-import { connectDB } from "./config/db.js";
-import authRoutes from "./routes/auth.routes.js";
-import userRoutes from "./routes/user.routes.js";
-import { errorHandler, notFound } from "./middleware/error.js";
-
+dotenv.config();
 const app = express();
 
-// ---------- Core middleware ----------
+// Middleware
 app.use(helmet());
-app.use(
-  cors({
-    origin: process.env.CLIENT_ORIGIN?.split(",") ?? "*",
-    credentials: true,
-  })
-);
-app.use(express.json({ limit: "1mb" }));
-app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
+app.use(cors({ origin: process.env.CLIENT_ORIGIN, credentials: true }));
+app.use(express.json());
+app.use(morgan("dev"));
 
-// ---------- Rate limit on auth ----------
-const authLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 30,
-  standardHeaders: true,
-  legacyHeaders: false,
-});
-
-// ---------- Routes ----------
+// Health check
 app.get("/api/health", (_req, res) =>
   res.json({ status: "ok", uptime: process.uptime() })
 );
 
-app.use("/api/auth", authLimiter, authRoutes);
+// Mount routes
+app.use("/api/auth", authRoutes);   // <-- this is critical
 app.use("/api/users", userRoutes);
 
-// ---------- 404 + error ----------
+// Error handlers
 app.use(notFound);
 app.use(errorHandler);
 
-// ---------- Boot ----------
+// Boot
 const PORT = process.env.PORT || 5000;
-
-connectDB()
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`🏋️  Barbell API running on http://localhost:${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.error("❌ Failed to start server:", err.message);
-    process.exit(1);
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`✅ Server running on http://localhost:${PORT}`);
   });
+});
