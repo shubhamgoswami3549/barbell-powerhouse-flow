@@ -37,10 +37,10 @@ export function Footer() {
         <div>
           <h4 className="font-display text-xl tracking-wider mb-4">Contact</h4>
           <ul className="space-y-3 text-sm text-muted-foreground">
-            <li className="flex gap-2"><MapPin size={16} className="text-primary mt-0.5 shrink-0" /> 221 Iron Street, Mumbai, India</li>
-            <li className="flex gap-2"><Phone size={16} className="text-primary mt-0.5 shrink-0" /> +91 98765 43210</li>
-            <li className="flex gap-2"><Mail size={16} className="text-primary mt-0.5 shrink-0" /> hello@barbellfitness.in</li>
-            <li className="flex gap-2"><Clock size={16} className="text-primary mt-0.5 shrink-0" /> Mon–Sun: 5:00 AM – 11:00 PM</li>
+            <li className="flex gap-2"><MapPin size={16} className="text-primary mt-0.5 shrink-0" /><span>221 Iron Street, Mumbai, India</span></li>
+            <li className="flex gap-2"><Phone size={16} className="text-primary mt-0.5 shrink-0" /><span>+91 98765 43210</span></li>
+            <li className="flex gap-2"><Mail size={16} className="text-primary mt-0.5 shrink-0" /><span>hello@barbellfitness.in</span></li>
+            <li className="flex gap-2"><Clock size={16} className="text-primary mt-0.5 shrink-0" /><span>Mon–Sun: 5:00 AM – 11:00 PM</span></li>
           </ul>
         </div>
 
