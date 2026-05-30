@@ -93,6 +93,7 @@
 
 @layer utilities {
   .font-display { font-family: var(--font-display); }
+  .font-condensed { font-family: var(--font-condensed); }
   .bg-gradient-hero { background: var(--gradient-hero); }
   .bg-gradient-red { background: var(--gradient-red); }
   .bg-gradient-dark { background: var(--gradient-dark); }
